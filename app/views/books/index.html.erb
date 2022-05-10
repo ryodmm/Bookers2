@@ -1,15 +1,33 @@
+<main>
+  <%= render 'list', books: @bookd %>
 
 
+  <div class="col-md-8" offset-md-1>
+    <h2>Books</h2>
+    <table class="table table-hover table-inverse">
+      <thead>
+        <tr>
+          <th></th>
 
-<h2>New book</h2>
+          <th>Title</th>
 
-<%= form_with model: @book, url: '/books', method: :post do |f| %>
-  <h4>title</h4>
-  <%= f.text_field :title %>
+          <th>Opinion</th>
 
+          <th colspan="3"></th>
+        </tr>
 
-  <h4>opinion</h4>
-  <%= f.text_area :body %>
+      </thead>
+      <% @books.each do |book| %>
 
-  <%= f.submit 'create book' %>
-<% end %>
+        <tbody>
+          <tr>
+            <td><%= image_tag book.user.get_profile_image(100,100) %></td>
+            <td><%= book.title %></td>
+            <td><%= book.body %></td>
+          </tr>
+        </tbody>
+      <% end %>
+    </table>
+  </div>
+
+</main>
