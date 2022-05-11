@@ -3,6 +3,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+         
+  validates :introduction, presence: false, length: { maximum: 50 }
 
   has_one_attached :profile_image
   def get_profile_image(width, height)

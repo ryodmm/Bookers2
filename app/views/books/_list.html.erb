@@ -6,26 +6,35 @@
         <tr></tr>
         <tr>
       	  <th>name</th>
-      	  <th> <%= @user_id %> </th>
+      	  <th> <%= current_user.name %> </th>
         </tr>
         <tr>
       	  <th>introduction</th>
-      	  <th></th>
+      	  <th> <%= current_user.introduction %></th>
         </tr>
       </tbody>
     </table>
 
+    <div class="row">
+      <%= link_to edit_user_path(current_user), class: "btn btn-outline-secondary btn-block" do %>
+      <i class="fa-solid fa-user-gear"></i>
+      <% end %>
+    </div>
 
     <h2>New book</h2>
 
     <%= form_with model: @book, url: '/books', method: :post do |f| %>
-      <h4>title</h4>
-      <%= f.text_field :title %>
 
+      <div class="form-group">
+        <label for="book_title">Title</label>
+        <input class="form-control book_title" type="text" name="book[title]" id="book_title">
+      </div>
 
-      <h4>opinion</h4>
-      <%= f.text_area :body %>
+      <div class="form-group">
+        <label for="book_opinion">Opinion</label>
+        <textarea class="form-control book_body" name="book[body]" id="book_body"></textarea>
+      </div>
 
-      <%= f.submit 'create book' %>
+      <button type="submit" class="btn btn-success">create book</button>
     <% end %>
   </div>
