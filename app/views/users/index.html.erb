@@ -16,11 +16,15 @@
         <tbody>
           <tr>
             <td>
-              <%= image_tag book.user.get_profile_image(100,100) %>
+              <%= image_tag user.get_profile_image(100,100) %>
             </td>
 
             <td><%= user.name %></td>
-            <td><%= link_to show,show_path(user.id) %></td>
+            <td>
+              <%= link_to user_path(user.id) do %>
+               Show
+              <% end %>
+            </td>
           </tr>
         </tbody>
         <% end %>
