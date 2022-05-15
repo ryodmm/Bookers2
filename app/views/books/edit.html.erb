@@ -8,15 +8,15 @@
 
         <div class="form-group">
           <label for="book_title">Title</label>
-          <input class="form-control book_title" type="text" name="book[title]" id="book_title">
+          <%= f.text_field :title %>
         </div>
 
         <div class="form-group">
           <label for="book_opinion">Opinion</label>
-          <textarea class="form-control book_body" name="book[body]" id="book_body"></textarea>
+          <%= f.text_area :body %>
         </div>
-
-        <button type="submit" class="btn btn-success">Update Book</button>
+        
+          <%= f.submit "Update Book" %>
 
         <% end %>
 
@@ -26,7 +26,7 @@
 
         |
 
-        <%= link_to books_path(current_user) do %>
+        <%= link_to books_path do %>
          Back
         <% end %>
 

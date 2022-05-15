@@ -1,6 +1,6 @@
 <div class="col-md-3">
     <h2>User info</h2>
-    <%= image_tag @user.get_profile_image(100,100) %>
+    <%= image_tag current_user.get_profile_image(100,100) %>
     <table class="table">
       <tbody>
         <tr></tr>
@@ -23,18 +23,18 @@
 
     <h2>New book</h2>
 
-    <%= form_with model: @book, url: '/books', method: :post do |f| %>
+    <%= form_with model: books, url: '/books', method: :post do |f| %>
 
       <div class="form-group">
         <label for="book_title">Title</label>
-        <input class="form-control book_title" type="text" name="book[title]" id="book_title">
+        <%= f.text_field :title %>
       </div>
 
       <div class="form-group">
         <label for="book_opinion">Opinion</label>
-        <textarea class="form-control book_body" name="book[body]" id="book_body"></textarea>
+        <%= f.text_area :body %>
       </div>
 
-      <button type="submit" class="btn btn-success">Create Book</button>
+      <%= f.submit "Create Book" %>
     <% end %>
   </div>
