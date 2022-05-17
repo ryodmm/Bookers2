@@ -1,5 +1,15 @@
 <main>
   <div class="container">
+
+    <% if @book.errors.any? %>
+      <strong><%= @book.errors.count %>errors prohibited this obj from being saved:</strong>
+      <ul>
+        <% @book.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
+
     <div class="row">
       <div class="col-sm-12 col-md-8 col-lg-5 px 5 px-sm-0 mx-auto">
         <h1>Editing Book</h1>
@@ -15,7 +25,7 @@
           <label for="book_opinion">Opinion</label>
           <%= f.text_area :body %>
         </div>
-        
+
           <%= f.submit "Update Book" %>
 
         <% end %>
