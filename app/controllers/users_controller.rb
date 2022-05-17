@@ -1,15 +1,5 @@
 class UsersController < ApplicationController
 
-  def create
-    @user = login(params[:email], params[:password])
-    if @user
-      redirect_back_or_to root_path, success: 'Welcome! You have signed up successfully'
-    else
-      flash[:danger] = 'ログインに失敗しました'
-      render :new
-    end
-  end
-
 
   def index
     @users = User.all
