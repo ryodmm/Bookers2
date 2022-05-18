@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :correct_post,only: [:edit]
+  before_action :ensure_correct_post,only: [:edit]
 
   def index
     @users = User.all
@@ -27,9 +27,9 @@ class UsersController < ApplicationController
     end
   end
 
-  def correct_post
-        @user = User.find(params[:id])
-    unless @user.user.id == current_user.id
+  def ensure_correct_post
+    @user = User.find(params[:id])
+    unless @user == current_user
       redirect_to users_path
     end
   end
