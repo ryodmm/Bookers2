@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_action :ensure_correct_post,only: [:edit]
 
   def index
+    @book = Book.new
     @users = User.all
     @user = current_user
   end

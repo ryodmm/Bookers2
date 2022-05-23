@@ -3,7 +3,7 @@
   <div class="container">
     <div class="row">
 
-      <%= render 'list', books: @book_new %>
+      <%= render 'list', user: @user, book: @book, books: @book %>
 
       <div class="col-md-8 offset-md-1">
         <h2>Book detail</h2>
@@ -11,7 +11,7 @@
           <tbody>
             <tr>
               <td>
-                <%= link_to user_path(@_user.id) do %>
+                <%= link_to user_path(@user.id) do %>
                 <%= image_tag @book.user.get_profile_image(100,100) %>
                 <%= @book.user.name %>
                 <% end %>
@@ -27,7 +27,7 @@
                   Edit
                   <% end %>
 
-                  <%= link_to book_path, method: :delete,  class: "btn btn-danger" do %>
+                  <%= link_to book_path(@book.id), method: :delete,  class: "btn btn-danger" do %>
                   destroy
                   <% end %>
 
