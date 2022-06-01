@@ -1,9 +1,7 @@
-<main>
-
-  <div class="container">
+<div class="container">
     <div class="row">
 
-      <%= render 'list', user: @user, book: @book, books: @book %>
+      <%= render 'list', user: @user, book: @book_new %>
 
       <div class="col-md-8 offset-md-1">
         <h2>Book detail</h2>
@@ -28,7 +26,7 @@
                   <% end %>
 
                   <%= link_to book_path(@book.id), method: :delete,  class: "btn btn-danger" do %>
-                  destroy
+                  Destroy
                   <% end %>
 
                 <% end %>
@@ -40,4 +38,3 @@
       </div>
     </div>
   </div>
-</main>
